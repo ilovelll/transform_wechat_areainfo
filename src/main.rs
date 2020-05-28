@@ -46,7 +46,7 @@ fn main() -> Result<(), Error> {
 
     fs::remove_file("dist/areainfo.js")?;
     let mut output = File::create("dist/areainfo.js")?;
-    write!(output, "module.export = {{")?;
+    write!(output, "module.exports = {{")?;
     for (country, provinces) in hm_area {
         let country_tag = if country.chars().take(1).next().unwrap().is_ascii_alphabetic() { "EN" } else { "CN" };
         write!(output, "{0}:[{{value:\"{1}\",label:\"{1}\",children:[", country_tag, country)?;
